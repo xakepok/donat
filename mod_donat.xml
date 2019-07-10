@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.8" client="site" method="upgrade">
+	<name>MOD_DONAT</name>
+	<creationDate>09.07.2019</creationDate>
+	<author>XAKEPok</author>
+	<authorEmail>xakepok@xakepok.com</authorEmail>
+	<authorUrl>https://elektrichking.site</authorUrl>
+	<copyright>A copyright</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0.0</version>
+	<description>MOD_DONAT_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_donat">mod_donat.php</filename>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+		<filename>mod_donat.xml</filename>
+	</files>
+
+	<!-- Update servers -->
+	<updateservers>
+		<server type="extension" priority="1" name="donat">https://xakepok.com/Thrid/updates/mod_donat.xml</server>
+	</updateservers>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="domain"
+					type="url"
+					label="MOD_DONAT_URL_LABEL"
+					description="MOD_DONAT_URL_DESCRIPTION"
+					hint="https://www.example.com"
+					filter="url"
+					validate="url"
+				/>
+				<field
+					name="receiver"
+					type="text"
+					filter="integer"
+					label="MOD_DONAT_FORM_RECEIVER"
+					description="MOD_DONAT_FORM_RECEIVER_DESC"
+					hint="41001xxxxxxxxxxxx"
+					required="true"
+				/>
+				<field
+					name="targets"
+					type="text"
+					filter="string"
+					label="MOD_DONAT_TARGETS"
+					description="MOD_DONAT_TARGETS_DESC"
+					hint="MOD_DONAT_TARGETS_HINT"
+					required="true"
+				/>
+				<field
+					name="quickpay-form"
+					type="list"
+					label="MOD_DONAT_FORM_QP"
+					description="MOD_DONAT_FORM_QP_DESC"
+					required="true">
+					<option value="shop">MOD_DONAT_FORM_QP_SHOP</option>
+					<option value="small">MOD_DONAT_FORM_QP_SMALL</option>
+					<option value="donate">MOD_DONAT_FORM_QP_DONATE</option>
+				</field>
+				<field
+						name="sum"
+						type="text"
+						filter="float"
+						label="MOD_DONAT_AMOUNT"
+						description="MOD_DONAT_AMOUNT_DESC"
+						hint="100.00"
+						required="true"
+				/>
+				<field
+						name="paymentType-PC"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						default="1"
+						label="MOD_DONAT_PAYMENT_TYPE_PC"
+						description="MOD_DONAT_PAYMENT_TYPE_PC_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+						name="paymentType-AC"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						default="1"
+						label="MOD_DONAT_PAYMENT_TYPE_AC"
+						description="MOD_DONAT_PAYMENT_TYPE_AC_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+						name="paymentType-MC"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						default="0"
+						label="MOD_DONAT_PAYMENT_TYPE_MC"
+						description="MOD_DONAT_PAYMENT_TYPE_MC_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+						name="successURL"
+						type="text"
+						label="MOD_DONAT_SUCCESS_URL"
+						description="MOD_DONAT_SUCCESS_URL_DESC"
+						hint="http://"
+						filter="url"
+				/>
+				<field
+						name="need-fio"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						default="0"
+						label="MOD_DONAT_NEED_FIO"
+						description="MOD_DONAT_NEED_FIO_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+						name="need-email"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						default="0"
+						label="MOD_DONAT_NEED_EMAIL"
+						description="MOD_DONAT_NEED_EMAIL_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+						name="need-phone"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						default="0"
+						label="MOD_DONAT_NEED_PHONE"
+						description="MOD_DONAT_NEED_PHONE_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+						name="need-address"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						default="0"
+						label="MOD_DONAT_NEED_ADDRESS"
+						description="MOD_DONAT_NEED_ADDRESS_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+			<fieldset
+					name="advanced">
+				<field
+						name="moduleclass_sfx"
+						type="text"
+						label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+						description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
